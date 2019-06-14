@@ -10,25 +10,24 @@ export class LoremCompletionProvider implements vscode.CompletionItemProvider {
     token: vscode.CancellationToken,
     context: vscode.CompletionContext
   ): vscode.ProviderResult<vscode.CompletionItem[] | vscode.CompletionList> {
-    return new Promise(resolve => {
-      const line = document.getText(document.getWordRangeAtPosition(position));
-      const m = line.match(reLorem);
+    const line = document.getText(document.getWordRangeAtPosition(position));
+    const m = line.match(reLorem);
 
-      if (m) {
-        const wordCount = m[1] || '10';
-        const completionItem = new vscode.CompletionItem(
-          m[0],
-          vscode.CompletionItemKind.Snippet
-        );
-        completionItem.insertText = new vscode.SnippetString(
-          generateLorem(parseInt(wordCount))
-        );
-        completionItem.kind = vscode.CompletionItemKind.Snippet;
-        completionItem.documentation = completionItem.insertText.value;
-        completionItem.detail = `產生 ${wordCount} 字數中文假文`;
-        return resolve(new vscode.CompletionList([completionItem]));
-      }
-      return resolve(undefined);
-    });
+    if (!m) {
+      return undefined;
+    }
+
+    const wordCount = m[1] || '30';
+    const completionItem = new vscode.CompletionItem(
+      m[0],
+      vscode.CompletionItemKind.Snippet
+    );
+    completionItem.insertText = new vscode.SnippetString(
+      generateLorem(parseInt(wordCount))
+    );
+    completionItem.kind = vscode.CompletionItemKind.Snippet;
+    completionItem.documentation = completionItem.insertText.value;
+    completionItem.detail = `產生 ${wordCount} 字數中文假文`;
+    return new vscode.CompletionList([completionItem], true);
   }
 }

@@ -1,7 +1,7 @@
 import { WORDS_CHT } from './words';
 
 const words = WORDS_CHT.split(' ');
-const CHARS_MIN_IN_SENTENCE = 7,
+const CHARS_MIN_IN_SENTENCE = 3,
   CHARS_MAX_IN_SENTENCE = 30,
   SENTENCE_MIN_IN_PARAGRAPH = 3,
   SENTENCE_MAX_IN_PARAGRAPH = 10;
@@ -63,16 +63,27 @@ function gen_paragraph({
         senetence_with_seperator = false;
       }
       paragrph += gen_sentence({ max_char: sentence_max_char });
-      if (senetence_with_seperator && paragrph.length < min_char - 2) {
+      if (senetence_with_seperator) {
         paragrph += symbol.comma;
       }
     }
   }
+
   if (paragrph.length > max_char) {
     paragrph = paragrph.substr(0, max_char);
   }
+
   if (paragrph.length > CHARS_MIN_IN_SENTENCE) {
     paragrph = paragrph.slice(0, paragrph.length - 1) + symbol.period;
+  }
+
+  if (
+    paragrph.substring(paragrph.length - 2, paragrph.length - 1) ===
+    symbol.comma
+  ) {
+    let b1 = paragrph.split('');
+    b1.splice(paragrph.length - 2, 1, gen_word().slice(0, 1));
+    paragrph = b1.join('');
   }
 
   return paragrph;
