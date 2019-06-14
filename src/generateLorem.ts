@@ -1,7 +1,7 @@
 import { WORDS_CHT } from './words';
 
 const words = WORDS_CHT.split(' ');
-const CHARS_MIN_IN_SENTENCE = 10,
+const CHARS_MIN_IN_SENTENCE = 7,
   CHARS_MAX_IN_SENTENCE = 30,
   SENTENCE_MIN_IN_PARAGRAPH = 3,
   SENTENCE_MAX_IN_PARAGRAPH = 10;
@@ -12,15 +12,22 @@ const symbol = {
 };
 
 export function generateLorem(wordCount: number) {
-  return gen_paragraph(wordCount, wordCount);
+  return gen_paragraph({ min_char: wordCount, max_char: wordCount });
 }
 
-function gen_paragraph(
-  min_char: number,
-  max_char: number,
-  min_sentence?: number,
-  max_sentence?: number
-) {
+type genParagraphParams = {
+  max_char: number;
+  min_char?: number;
+  min_sentence?: number;
+  max_sentence?: number;
+};
+
+function gen_paragraph({
+  max_char,
+  min_char,
+  min_sentence,
+  max_sentence
+}: genParagraphParams) {
   const least_sentence = min_sentence || SENTENCE_MIN_IN_PARAGRAPH;
   const most_sentence = max_sentence || SENTENCE_MAX_IN_PARAGRAPH;
 
@@ -55,14 +62,15 @@ function gen_paragraph(
         sentence_max_char += 1;
         senetence_with_seperator = false;
       }
-      let sentence = gen_sentence({ max_char: sentence_max_char });
-      paragrph += sentence;
-      if (senetence_with_seperator) {
+      paragrph += gen_sentence({ max_char: sentence_max_char });
+      if (senetence_with_seperator && paragrph.length < min_char - 2) {
         paragrph += symbol.comma;
       }
     }
   }
-
+  if (paragrph.length > max_char) {
+    paragrph = paragrph.substr(0, max_char);
+  }
   if (paragrph.length > CHARS_MIN_IN_SENTENCE) {
     paragrph = paragrph.slice(0, paragrph.length - 1) + symbol.period;
   }
