@@ -14,4 +14,4 @@ Also You can define how many characters you want to generate by typing `ctlorem<
 # 使用方式
 
 在 HTML 的格式內，輸入 `ctlorem` 按下 `tab` 或是 `enter` 即可產生 128 個字的中文假文，
-也可以自行設定要產生的字數 `ctlorem<字數>` 後按下 `tab` 或 `enter` 即可
+也可以自行設定要產生的字數 `ctlorem<字數>` 後按下 `tab` 或 `enter` 即可，例如: `ctlorem120` 就可以產生 120 個中文字

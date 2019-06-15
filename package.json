@@ -1,6 +1,6 @@
 {
   "name": "ctlorem",
-  "displayName": "ctlorem",
+  "displayName": "Chinese Lorem",
   "description": "Traditional Chinese Lorem",
   "version": "0.1.0",
   "publisher": "kevinyang",
@@ -39,5 +39,6 @@
     "tslint": "^5.12.1",
     "typescript": "^3.3.1",
     "vscode": "^1.1.28"
-  }
+  },
+  "icon": "images/ctlorem-icon.png"
 }
