@@ -13,21 +13,19 @@ export class LoremCompletionProvider implements vscode.CompletionItemProvider {
     const line = document.getText(document.getWordRangeAtPosition(position));
     const m = line.match(reLorem);
 
-    if (!m) {
-      return undefined;
-    }
-
-    const wordCount = m[1] || '30';
+    const wordCount = (m && +m[1]) || 30;
+    const itemLabel = (m && m[0]) || 'ctlorem';
     const completionItem = new vscode.CompletionItem(
-      m[0],
+      itemLabel,
       vscode.CompletionItemKind.Snippet
     );
     completionItem.insertText = new vscode.SnippetString(
-      generateLorem(parseInt(wordCount))
+      generateLorem(wordCount)
     );
     completionItem.kind = vscode.CompletionItemKind.Snippet;
     completionItem.documentation = completionItem.insertText.value;
     completionItem.detail = `產生 ${wordCount} 字數中文假文`;
-    return new vscode.CompletionList([completionItem], true);
+    const items = [completionItem];
+    return new vscode.CompletionList(items, true);
   }
 }

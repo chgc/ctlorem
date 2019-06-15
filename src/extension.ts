@@ -11,7 +11,17 @@ export function activate(context: vscode.ExtensionContext) {
       { scheme: 'file', language: 'html' },
       { scheme: 'untitled', language: 'html' }
     ],
-    new LoremCompletionProvider()
+    new LoremCompletionProvider(),
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '0'
   );
 
   context.subscriptions.push(disposable);
