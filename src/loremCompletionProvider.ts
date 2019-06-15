@@ -13,7 +13,7 @@ export class LoremCompletionProvider implements vscode.CompletionItemProvider {
     const line = document.getText(document.getWordRangeAtPosition(position));
     const m = line.match(reLorem);
 
-    const wordCount = (m && +m[1]) || 30;
+    const wordCount = (m && +m[1]) || 128;
     const itemLabel = (m && m[0]) || 'ctlorem';
     const completionItem = new vscode.CompletionItem(
       itemLabel,
