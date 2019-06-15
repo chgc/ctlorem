@@ -1,65 +1,17 @@
-# ctlorem README
+# Functionality
 
-This is the README for your extension "ctlorem". After writing up a brief description, we recommend including the following sections.
+Generates and inserts Traditional Chinese lorem ipsum text into Visual Studio Code.
 
-## Features
+# Usage
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+You can simply type `ctlorem` to generate default 30 Traditional Chinese characters in HTML File.
+Also You can define how many characters you want to generate by typing `ctlorem<number of charactors>`. example: `ctlorem120` to generate 120 characters .
 
-For example if there is an image subfolder under your extension project workspace:
+# 功能
 
-\!\[feature X\]\(images/feature-x.png\)
+產生並插入繁體中文假文至 Visual Studio Code 內
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+# 使用方式
 
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+在 HTML 的格式內，輸入 `ctlorem` 按下 `tab` 或是 `enter` 即可產生 30 個字的中文假文，
+也可以自行設定要產生的字數 `ctlorem<字數>` 後按下 `tab` 或 `enter` 即可

@@ -2,8 +2,8 @@
   "name": "ctlorem",
   "displayName": "ctlorem",
   "description": "Traditional Chinese Lorem",
-  "version": "0.0.1",
-  "publisher": "cky",
+  "version": "0.1.0",
+  "publisher": "kevinyang",
   "engines": {
     "vscode": "^1.35.0"
   },
@@ -16,6 +16,14 @@
   "main": "./out/extension.js",
   "contributes": {
     "commands": []
+  },
+  "homepage": "https://github.com/chgc/ctlorem",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chgc/ctlorem"
+  },
+  "bugs": {
+    "url": "https://github.com/chgc/ctlorem/issues"
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
