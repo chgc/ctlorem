@@ -2,6 +2,10 @@
 
 Generates and inserts Traditional Chinese lorem ipsum text into Visual Studio Code.
 
+# Support Languages
+
+Default language support: HTML, PHP
+
 # Usage
 
 You can simply type `ctlorem` to generate default 128 Traditional Chinese characters in HTML File.

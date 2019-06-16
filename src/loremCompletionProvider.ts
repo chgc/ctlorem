@@ -36,5 +36,11 @@ export function getIncludedLangues(): string[] {
     (vscode.workspace.getConfiguration('ctlorem')[
       'includeLanguages'
     ] as string) || '';
-  return [...defaultLanguages, ...includeLanguagesConfig.split(',')];
+  return [
+    ...defaultLanguages,
+    ...includeLanguagesConfig
+      .split(',')
+      .filter(x => x.length > 0)
+      .map(x => x.trim())
+  ];
 }

@@ -23,7 +23,7 @@
         "ctlorem.includeLanguages": {
           "type": "string",
           "default": null,
-          "description": "%ctloremIncludeLanguages%"
+          "markdownDescription": "%ctloremIncludeLanguages%"
         }
       }
     }
