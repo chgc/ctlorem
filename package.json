@@ -2,7 +2,7 @@
   "name": "ctlorem",
   "displayName": "Chinese Lorem",
   "description": "Traditional Chinese Lorem",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "publisher": "kevinyang",
   "engines": {
     "vscode": "^1.35.0"
