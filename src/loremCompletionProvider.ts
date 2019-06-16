@@ -29,3 +29,12 @@ export class LoremCompletionProvider implements vscode.CompletionItemProvider {
     return new vscode.CompletionList(items, true);
   }
 }
+
+export function getIncludedLangues(): string[] {
+  const defaultLanguages = ['html', 'php'];
+  let includeLanguagesConfig =
+    (vscode.workspace.getConfiguration('ctlorem')[
+      'includeLanguages'
+    ] as string) || '';
+  return [...defaultLanguages, ...includeLanguagesConfig.split(',')];
+}
